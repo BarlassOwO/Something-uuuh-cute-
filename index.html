@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Who is she?</title>
+  <style>
+    /* Estilo base actualizado */
+    body {
+        background-color: #fef9e7;
+        margin: 0;
+        padding: 40px 0; /* Añadimos espacio arriba y abajo */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Cambiamos a start para que no se corte arriba */
+        min-height: 100vh;
+        font-family: 'Arial Rounded MT Bold', 'Helvetica', sans-serif;
+        color: #5d4037;
+        /* Quitamos el overflow: hidden para que puedas bajar con el mouse */
+        overflow-x: hidden; 
+    }
+
+    .contenedor-principal {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 25px;
+        border: 5px solid #fbc02d;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        z-index: 10;
+        max-width: 90%;
+        width: 400px; /* Ancho fijo para que se vea bien en celular y PC */
+        margin: auto; /* Centra el cuadro */
+    }
+
+    .tu-dibujo {
+        max-width: 100%; /* Ajusta el dibujo al ancho del cuadro */
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        color: #f9a825;
+        margin-top: 0;
+        font-size: 1.8rem; /* Un poco más pequeño para que no ocupe tanto */
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin: 10px 0; /* Espacio entre párrafos */
+    }
+
+    /* Las flores flotantes se quedan igual */
+    .flor-flotante {
+        position: fixed; /* Cambiado a fixed para que no se muevan al bajar */
+        font-size: 30px;
+        opacity: 0.8;
+        user-select: none;
+        z-index: 1;
+        animation: flotar 10s linear infinite;
+        bottom: -50px; /* Aparecen desde abajo de la pantalla */
+    }
+
+    @keyframes flotar {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+    <script>
+        // Esta función crea flores en posiciones aleatorias
+        function crearFlor() {
+            const flores = ['🌻', '💛', '🌼', '✨', '🦦', '🪼'];
+            const flor = document.createElement('div');
+            flor.classList.add('flor-flotante');
+            flor.innerText = flores[Math.floor(Math.random() * flores.length)];
+            flor.style.left = Math.random() * 100 + 'vw';
+            flor.style.animationDuration = (Math.random() * 5 + 5) + 's'; // Duración aleatoria
+            document.body.appendChild(flor);
+
+            // Elimina la flor después de que termine la animación
+            setTimeout(() => {
+                flor.remove();
+            }, 10000);
+        }
+        // Crea una flor nueva cada 300ms
+        setInterval(crearFlor, 300);
+    </script>
+
+    <div class="contenedor-principal">
+        <h1>¿y si nos arrascamos la cola?</h1>
+        
+        <img src="dibujo.png" alt="Mi dibujo para ti" class="tu-dibujo">
+
+        <p>💛</p>
+        <p>Es mi primera vez haciendo un obsequio en este dia *punto punto punto*</p>
+        <p>jarbis hazme un huevo </p>
+        <p>ok ya</p>
+        <p>Bien susan, se que ha pasado por muchas cosas y me gustaria felicitarla por llegar hasta aqui</p>
+        <p>Nunca supe la verdad de estas sobre estas flores pero dicen que son para demostrar cariño o amor a alguien hmmm</p>
+        <p>Espero que ambos sigmamos presente uno del otro, el saber que usted esta presente en mi vida es muy bonito por muchas</p>
+        <p>Solo me queda decir gracias por tomarse el tiempo de estar aqui</p>
+        <p>La quiero demasiado, mas de lo que puede pensar</p>
+        <p>y si hay mas manera de demostrarlo, lo demostrare a mi manera</p>
+        <p>:3</p>
+        <p>🌻🐿️🌻</p>
+    </div>
+
+</body>
+</html>
